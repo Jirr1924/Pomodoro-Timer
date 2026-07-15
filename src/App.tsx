@@ -15,23 +15,24 @@ const MAGICAL_CHIME_URL = 'https://assets.mixkit.co/active_storage/sfx/2019/2019
 
 export default function App() {
   const [user, loading] = useAuthState(auth);
+  const [loginLoading, setLoginLoading] = useState(false);
+  const [loginError, setLoginError] = useState('');
 
   if (loading) {
     return <div className="min-h-screen flex items-center justify-center text-primary">Loading...</div>;
   }
 
   const handleLogin = async () => {
+    setLoginError('');
+    setLoginLoading(true);
     try {
-      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-      if (isMobile) {
-        await signInWithRedirect(auth, googleProvider);
-      } else {
-        await signInWithPopup(auth, googleProvider);
-      }
+      await signInWithPopup(auth, googleProvider);
     } catch (error: any) {
       if (error.code !== 'auth/popup-closed-by-user') {
         console.error('Login error:', error);
+        setLoginError(error.message || 'Gagal login. Coba lagi.');
       }
+      setLoginLoading(false);
     }
   };
 
@@ -40,12 +41,20 @@ export default function App() {
       <div className="min-h-screen flex items-center justify-center bg-surface px-4">
         <div className="bg-surface-container p-8 rounded-3xl soft-shadow text-center max-w-sm w-full border border-secondary/20 animate-in fade-in zoom-in-95 duration-300">
           <h1 className="font-display text-3xl font-bold text-primary mb-2">CozyPomo</h1>
-          <p className="text-text-muted mb-8 text-sm">Masuk untuk menyimpan progress belajar kamu di Cloud.</p>
+          <p className="text-text-muted mb-6 text-sm">Masuk untuk menyimpan progress belajar kamu di Cloud.</p>
+          
+          {loginError && (
+            <div className="mb-4 p-3 bg-terracotta/10 text-terracotta rounded-xl text-sm text-left border border-terracotta/20">
+              {loginError}
+            </div>
+          )}
+
           <button 
             onClick={handleLogin}
-            className="w-full bg-primary text-on-primary py-3 rounded-full font-semibold hover:opacity-90 transition-opacity"
+            disabled={loginLoading}
+            className="w-full bg-primary text-on-primary py-3 rounded-full font-semibold hover:opacity-90 transition-opacity disabled:opacity-50 flex items-center justify-center"
           >
-            Login dengan Google
+            {loginLoading ? 'Memproses...' : 'Login dengan Google'}
           </button>
         </div>
       </div>
