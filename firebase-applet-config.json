@@ -1,12 +1,12 @@
 {
-  "projectId": "cozypomo-timer",
-  "appId": "1:497085990693:web:6378bd51d2896bebf5fccc",
-  "apiKey": "AIzaSyDuBf3hdN-cZg07Wz3JSEcxdH9gsYKXwgk",
-  "authDomain": "cozypomo-timer.firebaseapp.com",
-  "firestoreDatabaseId": "(default)",
-  "storageBucket": "cozypomo-timer.firebasestorage.app",
-  "messagingSenderId": "497085990693",
-  "measurementId": "G-6Y1P59RVEL",
-  "oAuthClientId": "",
+  "projectId": "complete-crane-cfbwx",
+  "appId": "1:968184867583:web:27629b949bd5de5a55baca",
+  "apiKey": "AIzaSyAUXyaAWGEDRFploVTUKV6LzVwzaqGuyEM",
+  "authDomain": "complete-crane-cfbwx.firebaseapp.com",
+  "firestoreDatabaseId": "ai-studio-a16cff90-366d-4a50-bc7a-2c58c9590311",
+  "storageBucket": "complete-crane-cfbwx.firebasestorage.app",
+  "messagingSenderId": "968184867583",
+  "measurementId": "",
+  "oAuthClientId": "968184867583-559cma8desn329ei1ceil3ourihbve1d.apps.googleusercontent.com",
   "recaptchaSiteKey": ""
 }
