@@ -1,0 +1,52 @@
+{
+  "project_id": "complete-crane-cfbwx",
+  "collections": [
+    {
+      "name": "history",
+      "description": "User focus session minutes aggregated by date",
+      "fields": [
+        {
+          "name": "uid",
+          "type": "string",
+          "description": "User ID who owns this record"
+        },
+        {
+          "name": "date",
+          "type": "string",
+          "description": "Date in yyyy-MM-dd format"
+        },
+        {
+          "name": "minutes",
+          "type": "number",
+          "description": "Total minutes focused on this date"
+        }
+      ]
+    },
+    {
+      "name": "journals",
+      "description": "User journal entries",
+      "fields": [
+        {
+          "name": "uid",
+          "type": "string",
+          "description": "User ID who owns this journal entry"
+        },
+        {
+          "name": "date",
+          "type": "string",
+          "description": "ISO format date string of when the entry was created"
+        },
+        {
+          "name": "content",
+          "type": "string",
+          "description": "The text content of the journal"
+        },
+        {
+          "name": "feeling",
+          "type": "string",
+          "description": "The feeling selected for this journal entry"
+        }
+      ]
+    }
+  ]
+}
